@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>NeuralFinance - Web Applikation</title>
+
+<link rel="stylesheet" href="fontawesome-free-5.10.2-web/css/all.min.css">
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/font-awesome/css/all.min.css">
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1 id="title">NeuralFinance</h1>
+		<div>
+			<button id="open">Daten holen</button>
+			<input id="file-open" type="file" accept="*, .txt">
+			<button id="future">Abgleichen</button>
+			<input id="file-future" type="file" accept=".txt">
+		</div>
+	</header>
+
+
+	<div id="main">
+		<div id="chart" class="card no-padding"></div>
+
+		<div id="estimate" class="card">
+			<svg id="progress" width="100%" height="100%" viewBox="0 0 100 100">
+        <path d="M 50 2 A 46 46 0 0 1 50 2" fill="none" stroke="#65fc8d" stroke-width="3" />
+			</svg>
+			
+			<div class="description">
+				<p>
+					<span id="output-estimate-value" class="text-lg">Keine Angabe</span>
+				</p>
+			</div>
+
+			<button id="training-button" disabled></button>
+		</div>
+		<div id="future" class="card"></div>
+
+		<aside class="card">
+			<form>
+				<label for="epochs">Anzahl Epochen</label><br> <input
+					id="epochs" name="epochs" type="text" value="10000"> <br>
+				<br> <label for="increaseFactor">RPROP-Increase</label><br>
+				<input id="increaseFactor" name="increaseFactor" type="text"
+					value="1.05"> <br>
+				<br> <label for="shrinkFactor">RPROP-Shrink</label><br> <input
+					id="shrinkFactor" name="shrinkFactor" type="text" value="0.5">
+
+				<br>
+				<br>
+				<br> <label for="estimateLength">Schätzungslänge</label><br>
+				<input id="estimateLength" name="estimateLength" type="text"
+					value="10"> <br>
+				<br> <label for="hiddenLayers">Versteckte Neuronenlayer</label><br>
+				<input id="hiddenLayers" name="hiddenLayers" type="text"
+					value="30, 40, 30">
+			</form>
+		</aside>
+	</div>
+
+	<script src="js/util.js"></script>
+	<script src="js/progress_card.js"></script>
+	<script src="js/chart.js"></script>
+	<script src="js/data_handler.js"></script>
+	<script src="js/data_sender.js"></script>
+	<script src="js/controller.js"></script>
+	<script>new Controller();</script>
+</body>
+
+</html>
